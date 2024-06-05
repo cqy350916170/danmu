@@ -35,7 +35,6 @@ const chatObserverrom = new MutationObserver((mutationsList, observer) => {
             let { payload } = dom[propsId].children.props.message;
             let userinfo = getUser(payload.user);
             let message_info = null;
-            console.log(payload.common.method);
             switch (payload.common.method) {
                 case 'WebcastGiftMessage':
                     message_info = {
