@@ -35,6 +35,7 @@ const chatObserverrom = new MutationObserver((mutationsList, observer) => {
             let { payload } = dom[propsId].children.props.message;
             let userinfo = getUser(payload.user);
             let message_info = null;
+            console.log(payload.common.method);
             switch (payload.common.method) {
                 case 'WebcastGiftMessage':
                     message_info = {
@@ -107,7 +108,7 @@ function getUser(user) {
         user_nickName: user.nickname,
         user_avatar: user.avatar_thumb.url_list[0],
         user_gender: user.gender === 1 ? "男" : "女",
-        user_is_admin:"n",
+        user_is_admin: user.user_attr.is_admin ? "y" : "n",
         user_is_super_admin: user.user_attr.is_super_admin ? "y" : "n", // 超级管理员
     };
 
